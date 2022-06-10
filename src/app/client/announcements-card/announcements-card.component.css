@@ -1,0 +1,17 @@
+.announc{
+    display: inline-block;
+    padding: 8px 35px;
+    background-color: #8eec69;
+    color: #ffffff;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+    margin-top: 10px;
+}
+
+
+.announc:hover {
+    background-color: transparent;
+    border-color: #8eec69;
+    color: #8eec69;
+}

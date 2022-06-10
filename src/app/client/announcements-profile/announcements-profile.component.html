@@ -1,0 +1,50 @@
+<app-header></app-header>
+<!-- about section -->
+
+<section class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 px-0">
+                <div class="img_container">
+                    <div class="img-box">
+                        <img src="./assets/images/c1.jpg" alt="" />
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 px-0">
+                <div class="detail-box">
+                    <div class="heading_container ">
+                        <h2>
+                            {{announcements.selectrdAnnouncement.subject}}
+                        </h2>
+                    </div>
+                    <p>
+                        {{announcements.selectrdAnnouncement.text}}
+                    </p>
+
+                    <div class="heading_container ">
+                        <h3>
+                            {{announcements.selectrdAnnouncement.category}}
+                        </h3>
+                    
+                    <h4>
+                        {{announcements.selectrdAnnouncement.publisheddate|date:'YYYY-MM-dd'}}
+                    </h4>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end about section -->
+<app-footer></app-footer>
+
+
+
+<!-- 
+<app-header></app-header>
+<body>
+<h1>{{announcements.selectrdAnnouncement.text}}</h1>
+</body>
+<app-footer></app-footer> -->

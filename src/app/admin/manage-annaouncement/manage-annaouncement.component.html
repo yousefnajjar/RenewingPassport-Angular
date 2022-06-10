@@ -1,0 +1,138 @@
+<div id="outer-container">
+  <app-dashboard id="sidebar"></app-dashboard>
+  <div id="content">
+    <div class="container table-responsive py-5">
+      <h1> Announcemnt</h1>
+      <button type="button" class="btn btn-primary" (click)="openCreatedialog()">Create New</button>
+      <div style="overflow-x:auto !important;">
+      <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">TEXT</th>
+            <th scope="col">SUBJECT</th>
+            <th scope="col">PUBLISHEDDATE</th>
+            <th scope="col">CATEGORY</th>
+            <th scope="col">OPERATION</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let obj of annaouncement.announcementsData">
+
+            <td>{{obj.text}}</td>
+            <td>{{obj.subject}}</td>
+            <td>{{obj.publisheddate|date:'YYYY-MM-dd'}}</td>
+            <td>{{obj.category}}</td>
+            <td> <button type="button" class="btn btn-danger"
+                (click)="openDeletedialog(obj.announcement_Id)">Delete</button>
+              <button type="button" class="btn btn-info" style="margin: 10px;"
+              (click)="openUpdatedialog(obj.announcement_Id,obj.text,obj.subject,obj.category)"
+              >Update</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+  
+</div>
+
+
+
+
+<ng-template #callCreate>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="CreateForm" class="example-form">
+      <ul>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter the text </mat-label>
+            <input type="text" matInput formControlName="text" placeholder="text contant">
+            <mat-error *ngIf="CreateForm.controls['text'].hasError('required')">
+              text name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter the subject </mat-label>
+            <input type="text" matInput formControlName="subject" placeholder="subject">
+            <mat-error *ngIf="CreateForm.controls['subject'].hasError('required')">
+              subject is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter the category </mat-label>
+            <input type="text" matInput formControlName="category" placeholder="category">
+            <mat-error *ngIf="CreateForm.controls['category'].hasError('required')">
+              category price is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+
+        </li>
+        <!-- <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter the website_Id </mat-label>
+            <input type="number" matInput formControlName="website_Id" placeholder="website_Id">
+            <mat-error *ngIf="CreateForm.controls['website_Id'].hasError('required')">
+              website_Id price is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </li> -->
+      </ul>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button class="btn btn-secondary" mat-dialog-close>Cancel</button>
+    <button mat-button class="btn btn-primary" [mat-dialog-close]="true" (click)="save()" [disabled]="!CreateForm.valid"
+      cdkFocusInitial>Save</button>
+  </mat-dialog-actions>
+
+</ng-template>
+
+<ng-template #callDelete>
+  <h2>Are You Sure you want ti delete this item</h2>
+  <mat-dialog-actions align="end">
+    <button mat-button class="btn btn-secondary" mat-dialog-close="no">No</button>
+    <button mat-button class="btn btn-primary" mat-dialog-close="yes">yes</button>
+  </mat-dialog-actions>
+
+</ng-template>
+
+
+
+<ng-template #callUpdate>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="UpdateForm" class="example-form">
+      <ul>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter the text </mat-label>
+            <input type="text" matInput formControlName="text" [(ngModel)]="announ.text"
+             placeholder="text contant">
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter the subject </mat-label>
+            <input type="text" matInput formControlName="subject"  [(ngModel)]="announ.subject"placeholder="subject">
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter the category </mat-label>
+            <input type="text" matInput formControlName="category" [(ngModel)]="announ.category" placeholder="category">            
+          </mat-form-field>
+        </li>
+      </ul>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button class="btn btn-secondary" mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" class="btn btn-primary" (click)="update()" [disabled]="!UpdateForm.valid"
+      cdkFocusInitial>Save</button>
+  </mat-dialog-actions>
+
+</ng-template>

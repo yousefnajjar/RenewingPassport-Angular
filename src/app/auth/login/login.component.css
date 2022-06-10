@@ -1,0 +1,78 @@
+/* .star{
+  
+  text-align: center;
+  color: red;
+  position: relative;
+  right: 10px;
+  top: 10px;
+
+} */
+
+.star{
+  
+  text-align: center;
+  color: red;
+  position: relative;
+  right: 10px;
+  top: 10px;
+
+}
+
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  position: relative;
+  left: -350px;
+  background-color: #c1c6d4;
+  border-radius: 20px;
+
+}
+
+.input-group > .form-control:not(:first-child), .input-group > .custom-select:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: #a0a6ca;
+  color: #0d0c0c;
+  border-radius: 100px;
+}
+
+
+
+
+
+.input-group > .input-group-append > .btn, .input-group > .input-group-append > .input-group-text, .input-group > .input-group-prepend:not(:first-child) > .btn, .input-group > .input-group-prepend:not(:first-child) > .input-group-text, .input-group > .input-group-prepend:first-child > .btn:not(:first-child), .input-group > .input-group-prepend:first-child > .input-group-text:not(:first-child) {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    background-color: #071a52;
+    border-radius: 100px;
+
+}
+
+
+.input-group > .input-group-prepend > .btn, .input-group > .input-group-prepend > .input-group-text, .input-group > .input-group-append:not(:last-child) > .btn, .input-group > .input-group-append:not(:last-child) > .input-group-text, .input-group > .input-group-append:last-child > .btn:not(:last-child):not(.dropdown-toggle), .input-group > .input-group-append:last-child > .input-group-text:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  background-color: #071a52;
+  border-radius: 100px;
+
+}
+
+
+.btn, .btn:focus {
+  outline: none !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color: #071a52;
+  border-radius: 100px;
+
+}

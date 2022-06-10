@@ -1,0 +1,45 @@
+<div id="outer-container">
+  <app-dashboard id="sidebar"></app-dashboard>
+  <div id="content">
+   
+      <h1>Tesimonial</h1>
+      <br>
+      <br>
+      <div style="overflow-x:auto!important;">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">NAME</th>
+              <th scope="col">IMAGE</th>
+              <th scope="col">STATUS</th>
+              <th scope="col">FEEDBACK</th>
+              <th scope="col">OPERATION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let obj of testimonial.testimonialData">
+              <td>{{obj.name}}</td>
+              <td><img src="../../../assets/Rp_Images/{{obj.imagepath}}"
+                  style="height: 100px;width: 100px; border-radius: 20px;"></td>
+              <td>{{obj.status}}</td>
+              <td>{{obj.feedback}}</td>
+              <td> <button type="button" class="btn btn-danger"
+                  (click)="openDeleteDialog(obj.testimonial_Id)">Delete</button>
+                <button type="button" class="btn btn-info" style="margin: 10px;"
+                  (click)="approveTestimonial(obj)">Approve</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+<ng-template #callDeleteDialog class="buttons">
+  <h2>Are You Sure you want ti delete this item</h2>
+  <mat-dialog-actions align="end">
+    <button mat-button class="btn btn-secondary"mat-dialog-close="no">No</button>
+    <button mat-button class="btn btn-primary" mat-dialog-close="yes">yes</button>
+  </mat-dialog-actions>
+
+</ng-template>

@@ -1,0 +1,191 @@
+<div id="outer-container">
+  <app-dashboard id="sidebar"></app-dashboard>
+  <div id="content">
+    <div class="container table-responsive py-5">
+      <div class="search">
+
+        <form [formGroup]="SearchForm">
+          <div class="input-group">
+            <input type="search" class="form-control rounded" placeholder="Ex: passport Number..."
+             aria-label="Search"
+              aria-describedby="search-addon" formControlName="passportnumber" />
+            <button type="button" class="btn btn-outline-primary" (click)="Search()">Search</button>
+          </div>
+        </form>
+      </div>
+      <h1>Passports</h1>
+      <button type="button" class="btn btn-primary " (click)="getnull()">Pending Status</button>
+      <!-- <form class="f">
+        <label style="font-size: 20px; margin: 15px;"> Start Date </label>
+        <input class="form-control" type="date">
+        <div class="dates">
+        <label style="font-size: 20px; margin: 15px;"> End Date </label>
+        <input class="form-control" type="date">
+        </div>
+        <div class="btn-date">
+        <button type="button" class="btn btn-primary ">Submit</button>
+      </div>
+      </form> -->
+      <form [formGroup]="DateForm">
+        <div class="row">
+          <div class="col">
+            <label style="font-size: 18px;" > Start Date</label>
+            <input type="date" class="form-control" formControlName="startDate" >
+          </div>
+          <div class="colend">
+            <label style="font-size: 18px;"> End Date</label>
+            <input type="date" class="form-control" formControlName="endDate">
+          </div>
+          <button  type="button" class="btn btn-primary btndate" (click)="getdate()">Submit</button>
+        </div>
+      </form>
+      <br>
+      <div style="overflow-x:auto !important;">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">PASSPORT NUMBER</th>
+              <th scope="col">FULL NAME</th>
+              <th scope="col">NATIONAL NUMBER</th>
+              <th scope="col"> GENDER</th>
+              <th scope="col"> ADDRESS</th>
+              <th scope="col">STATUS</th>
+              <th scope="col">REQUEST TIME</th>
+              <th>OPERATION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let obj of passport.passportData">
+              <td>{{obj.passportnumber}}</td>
+              <td>{{obj.fullname}}</td>
+              <td>{{obj.national_No}}</td>
+              <td>{{obj.gender}}</td>
+              <td>{{obj.address}}</td>
+              <td>{{obj.status}}</td>
+              <td>{{obj.requesttime|date:'YYYY-MM-dd'}} </td>
+              <td>
+                <button type="button" class="btn btn-info" style="margin: 10px;" (click)="openviewdiolg(obj.passport_Id,obj.passportnumber,obj.fullname,
+                  obj.national_No,obj.gender,obj.expirydate,obj.img_Card,obj.img_Oldpassport,obj.birthdate,
+                  obj.placeofbirth,obj.dateofissue,obj.requesttime,obj.user_Id,obj.status,obj.passport_Type,
+                  obj.mother_Name,obj.authority,obj.address,obj.image, obj.email)">View</button>
+                <button type="button" class="btn btn-danger" (click)="openDeletedialog(obj.passport_Id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #callView>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="viewForm" class="example-form">
+      <ul>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p>Passport Number </p>
+            <input type="text" matInput formControlName="passportnumber" [(ngModel)]="passpor.passportnumber"
+              readonly="passportnumber">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p>Full Name </p>
+            <input type="text" matInput formControlName="fullname" [(ngModel)]="passpor.fullname" readonly="fullname">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p>National Number </p>
+            <input type="text" matInput formControlName="national_No" [(ngModel)]="passpor.national_No"
+              readonly="national_No">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p>Gender </p>
+            <input type="text" matInput formControlName="gender" [(ngModel)]="passpor.gender" readonly="gender">
+          </mat-form-field>
+
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p> Birth date </p>
+            <input type="text" matInput formControlName="birthdate" [(ngModel)]="passpor.birthdate "
+              readonly="birthdate">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p>Date Of Issue </p>
+            <input type="text" matInput formControlName="dateofissue" [(ngModel)]="passpor.dateofissue"
+              readonly="dateofissue">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p>Expiry Date </p>
+            <input type="text" matInput formControlName="expirydate" [(ngModel)]="passpor.expirydate"
+              readonly="expirydate">
+          </mat-form-field>
+        </li>
+
+        <li>
+
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p>Passport Type </p>
+            <input type="text" matInput formControlName="passport_Type" [(ngModel)]="passpor.passport_Type"
+              readonly="passport_Type">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p>Mother Name </p>
+            <input type="text" matInput formControlName="mother_Name" [(ngModel)]="passpor.mother_Name"
+              readonly="mother_Name">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p>Address </p>
+            <input type="text" matInput formControlName="address" [(ngModel)]="passpor.address" readonly="address">
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p>Authority </p>
+            <input type="text" matInput formControlName="authority" [(ngModel)]="passpor.authority"
+              readonly="authority">
+          </mat-form-field>
+
+
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p>Personal Image</p>
+            <img src="../../../assets/Rp_Images/{{passpor.image}}"
+              style="height:500px;width:700px; border-radius: 20px;">
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p>Old Passport Image</p>
+            <img src="../../../assets/Rp_Images/{{passpor.img_Oldpassport}}"
+              style="height:500px;width:700px; border-radius: 20px;">
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <p>Id Card Image</p>
+            <img src="../../../assets/Rp_Images/{{passpor.img_Card}}"
+              style="height:500px;width:700px; border-radius: 20px;">
+          </mat-form-field>
+        </li>
+      </ul>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close class="btn btn-secondary">Cancel</button>
+    <button mat-button [mat-dialog-close]="true" class="btn btn-primary"
+      (click)="approve(passpor.passport_Id, passpor.email, passpor.fullname)" cdkFocusInitial>Approve</button>
+    <button mat-button [mat-dialog-close]="true" class="btn btn-danger"
+      (click)="reject(passpor.passport_Id, passpor.email, passpor.fullname)" cdkFocusInitial> Reject </button>
+  </mat-dialog-actions>
+
+</ng-template>
+
+
+<ng-template #callDelete>
+  <h2>Are You Sure you want ti delete this item</h2>
+  <mat-dialog-actions align="end">
+    <button mat-button class="btn btn-secondary" mat-dialog-close="no">No</button>
+    <button mat-button class="btn btn-primary" mat-dialog-close="yes">yes</button>
+  </mat-dialog-actions>
+
+</ng-template>

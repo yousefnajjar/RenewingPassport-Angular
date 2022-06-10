@@ -1,0 +1,147 @@
+<div id="outer-container">
+    <app-dashboard id="sidebar"></app-dashboard>
+    <div id="content">
+
+        <h1>Country</h1>
+        <br>
+        <br>
+        <button type="button" class="btn btn-primary" (click)="openCreatedialog()">Create New</button>
+
+        <div style="overflow-x:auto!important;">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">COUNTRY TYPE</th>
+                        <th scope="col">COUNTRY NAME</th>
+                        <th scope="col">COUNTRY IMAGE</th>
+                        <th scope="col">COUNTRY DESCRPTION</th>
+                        <th scope="col">OPERATION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let obj of country.countryData">
+                        <td>{{obj.countryType}}</td>
+                        <td>{{obj.countryName}}</td>
+                        <td><img src="../../../assets/Rp_Images/{{obj.countryImage}}"
+                                style="height: 100px;width: 100px; border-radius: 20px;"></td>
+                        <td>{{obj.countryDescrption}}</td>
+                        <td> <button type="button" class="btn btn-danger"
+                                (click)="openDeleteDialog(obj.country_Id)">Delete</button>
+                            <button type="button" class="btn btn-info" style="margin: 10px;"
+                                (click)="openUpdatedialog(obj.country_Id,obj.countryType,obj.countryName,obj.countryImage,obj.countryDescrption)">Update</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<ng-template #callDelete class="buttons">
+    <h2>Are You Sure you want ti delete this item</h2>
+    <mat-dialog-actions align="end">
+        <button mat-button class="btn btn-secondary" mat-dialog-close="no">No</button>
+        <button mat-button class="btn btn-primary" mat-dialog-close="yes">yes</button>
+    </mat-dialog-actions>
+
+</ng-template>
+
+
+
+<ng-template #callCreate>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="CreateForm" class="example-form">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter The Country Type </mat-label>
+                        <input type="text" matInput formControlName="countryType" placeholder="countryType">
+                        <mat-error *ngIf="CreateForm.controls['countryType'].hasError('required')">
+                            country Type name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Country Name </mat-label>
+                        <input type="text" matInput formControlName="countryName" placeholder="country Name">
+                        <mat-error *ngIf="CreateForm.controls['countryName'].hasError('required')">
+                            Country Name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter the country Descrption </mat-label>
+                        <input type="text" matInput formControlName="countryDescrption"
+                            placeholder="country Descrption">
+                        <mat-error *ngIf="CreateForm.controls['countryDescrption'].hasError('required')">
+                            country Descrption price is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="countryImage"
+                        (change)="uploadImage(file.files)" style="display:none;">
+                    <button class="btn btn-success" (click)="file.click()">Upload Image</button>
+                </li>
+            </ul>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        <button mat-button class="btn btn-primary" [mat-dialog-close]="true" (click)="save()"
+            [disabled]="!CreateForm.valid" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+
+</ng-template>
+
+
+
+<ng-template #callUpdate>
+    <mat-dialog-content class="mat-typography">
+        <form [formGroup]="UpdateForm" class="example-form">
+            <ul>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter The Country Type </mat-label>
+                        <input type="text" matInput formControlName="countryType" placeholder="countryType" [ngModel]="countryobj.countryType">
+                        <mat-error *ngIf="CreateForm.controls['countryType'].hasError('required')">
+                            country Type name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter Country Name </mat-label>
+                        <input type="text" matInput formControlName="countryName" placeholder="country Name" [ngModel]="countryobj.countryName">
+                        <mat-error *ngIf="CreateForm.controls['countryName'].hasError('required')">
+                            Country Name is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                        <mat-label>Enter the country Descrption </mat-label>
+                        <input type="text" matInput formControlName="countryDescrption"
+                            placeholder="country Descrption" [ngModel]="countryobj.countryDescrption">
+                        <mat-error *ngIf="CreateForm.controls['countryDescrption'].hasError('required')">
+                            country Descrption price is <strong>required</strong>
+                        </mat-error>
+                    </mat-form-field>
+                </li>
+                <li>
+                    <input type="file" #file placeholder="Choose Image" formControlName="logo"
+                        (change)="uploadImage(file.files)" style="display:none;">
+                    <button class="btn btn-success" (click)="file.click()">Upload Image</button>
+                </li>
+            </ul>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+        <button mat-button class="btn btn-secondary" mat-dialog-close>Cancel</button>
+        <button mat-button class="btn btn-primary" [mat-dialog-close]="true" (click)="update()"
+            [disabled]="!UpdateForm.valid" cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+
+</ng-template>

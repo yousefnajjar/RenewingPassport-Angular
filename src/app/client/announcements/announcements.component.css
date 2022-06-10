@@ -1,0 +1,13 @@
+.input-group {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    width: 30%;
+    height: 31px;
+    top: 75px;
+    left: 105px;
+}

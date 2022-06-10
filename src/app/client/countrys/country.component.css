@@ -1,0 +1,18 @@
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+  }
+  
+  .cont {
+    top: -80px;
+    position: relative;
+  }
+  .item{
+
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+  }

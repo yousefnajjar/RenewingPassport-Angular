@@ -1,0 +1,33 @@
+<div id="outer-container">
+    <app-dashboard id="sidebar"></app-dashboard>
+    <div id="content">
+
+        <h1>Paymant Follow Up</h1>
+        <br>
+        <div style="overflow-x:auto!important;">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">FIRST NAME</th>
+                        <th scope="col">LAST NAME</th>
+                        <th scope="col"> RENEWAL FEE</th>
+                        <th scope="col">CARD NUMBER</th>
+                        <th scope="col">CARD NAME</th>
+                        <th scope="col">PASSPORT NUMBER </th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let obj of paymant.followUpdata">
+                        <td>{{obj.firstname}}</td>
+                        <td>{{obj.lastname}}</td>
+                        <td>{{obj.ammount}}</td>
+                        <td>{{obj.card_Number}}</td>
+                        <td>{{obj.card_Name}}</td>
+                        <td>{{obj.passportnumber}}</td>                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

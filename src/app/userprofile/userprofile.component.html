@@ -1,0 +1,305 @@
+<body>
+    <app-header></app-header>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="container">
+        <br>
+        <div class="row flex-lg-nowrap">
+            <div class="col">
+                <div class="row">
+                    <div class="col mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="e-profile">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-auto mb-3">
+                                            <div class="mx-auto" style="width: 140px;">
+                                                <div class="d-flex justify-content-center align-items-center rounded"
+                                                    style="height: 140px; background-color: rgb(233, 236, 239);">
+                                                    <span style="color: rgb(166, 168, 170); font: bold 8pt Arial;"><img
+                                                            width="175px" height="175px" 
+                                                            src="../../../assets/Rp_Images/{{profile.profileData.image}}">
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col d-flex flex-column flex-sm-row justify-content-between mb-3">
+                                            <div class="text-center text-sm-left mb-2 mb-sm-0">
+                                                <h4 class="pt-sm-2 pb-1 mb-0 text-nowrap">
+                                                    {{profile.profileData.firstname}}</h4>
+                                                <p class="mb-0">{{profile.profileData.email}}</p>
+                                                <div class="mt-5">
+                                                    <input type="file" #file placeholder="Choose Image"
+                                                        formControlName="image" (change)="uploadImage(file.files)"
+                                                        style="display:none;">
+                                                    <button class="btn btn-primary" type="button"
+                                                        (click)="file.click()">
+                                                        <i class="fa fa-fw fa-camera"></i>
+                                                        <span>Change Photo</span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="text-center text-sm-right">
+                                                <span class="badge badge-secondary">User</span>
+                                                <div class="text-muted"><small>Joined
+                                                        {{profile.profileData.registrationtime|date:'YYYY-MM-dd'}}</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <ul class="nav nav-tabs">
+                                        <li class="nav-item"><a href="" class="active nav-link">Settings</a></li>
+                                    </ul>
+
+                                    <form [formGroup]="EditForm">
+                                        <div class="row mt-2">
+                                            <div class="col-md-6"><label class="labels">First Name</label>
+                                                <input type="text" class="form-control" matInput
+                                                    formControlName="firstname"
+                                                    [ngModel]="profile.profileData.firstname">
+                                            </div>
+
+                                            <div class="col-md-6"><label class="labels">Last Name</label>
+                                                <input type="text" class="form-control" matInput
+                                                    formControlName="lastname" [ngModel]="profile.profileData.lastname">
+                                            </div>
+                                        </div>
+                                        <div class="row mt-3">
+                                            <div class="col-md-12"><label class="labels">Email</label><input type="text"
+                                                    class="form-control" matInput formControlName="email"
+                                                    [ngModel]="profile.profileData.email">
+                                            </div>
+
+                                            <div class="col-md-12"><label class="labels">Mobile Number</label><input
+                                                    type="text" class="form-control" matInput
+                                                    formControlName="phonenumber"
+                                                    [ngModel]="profile.profileData.phonenumber">
+                                            </div>
+                                            <div class="col-md-12" style="display: none;"><label
+                                                    class="labels">Registratiom Time</label>
+                                                <input type="text" class="form-control" matInput
+                                                    formControlName="registrationtime"
+                                                    [ngModel]="profile.profileData.registrationtime"
+                                                    readonly="registrationtime">
+                                            </div>
+                                        </div>
+                                        <div class="mt-5 text-center">
+                                            <button class="btn btn-primary profile-button" type="button"
+                                                [disabled]="!EditForm.valid" (click)="editinfo()">SaveProfile</button>
+
+                                        </div>
+                                    </form>
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4 mb-4">
+
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="px-xl-3">
+                                    <button class="btn btn-block btn-info" (click)="print()">
+                                        <span>View My Passport </span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="px-xl-3">
+                                    <button class="btn btn-block btn-info" (click)="openCreatedialog()">
+                                        <span>Add Card Information </span>
+                                    </button>
+                                    <button class="btn btn-block btn-info" (click)="openPaydialog()" >
+                                        <span>Pay</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form [formGroup]="RateForm">
+                            <div class="card mb-3">
+                                <div class="card-body">
+                                    <div class="px-xl-3">
+                                        <div class="col-md-12" style="height: 75px;"><label class="labels">Rate Our
+                                                Service</label>
+                                            <input type="number" class="form-control" style=" max-width: 70%;" matInput
+                                                formControlName="rate"><span class="rate">/10</span>
+
+                                            <mat-error class="col-lg-12"
+                                                *ngIf="RateForm.controls['rate'].hasError('max')  && !RateForm.controls['rate'].hasError('min')">
+                                                <p class="element"> Value Between 0 - 10</p>
+                                            </mat-error>
+
+                                        </div>
+                                        <br>
+                                        <button class="btn btn-block btn-info" [disabled]="!RateForm.valid"
+                                            (click)="saveRate()">
+                                            <span>Save Rate </span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <div class="px-xl-3">
+                                    <button class="btn btn-block btn-secondary" (click)="logout()">
+                                        <i class="fa fa-sign-out"></i>
+                                        <span>Logout</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form [formGroup]="EditPasswordForm">
+                            <div class="col-md-12">
+                                <div class="p-3 py-6">
+
+
+                                    <div class="d-flex justify-content-between align-items-center experience"><span>
+                                            Change Passpword</span></div><br>
+
+
+                                    <div style="display:none ;" class="col-md-12"><label class="labels">Old
+                                            Passwred</label>
+                                        <input type="password" class="form-control" matInput
+                                            formControlName="oldpassword1">
+                                        <mat-error
+                                            *ngIf="EditPasswordForm.controls['oldpassword1'].hasError('required')">
+                                            <p class="star">*</p>
+                                        </mat-error>
+
+                                    </div>
+
+
+                                    <div class="col-md-12"><label class="labels">Old Passwred</label>
+                                        <input type="password" class="form-control" matInput
+                                            formControlName="oldpassword">
+                                        <mat-error
+                                            *ngIf="EditPasswordForm.controls['oldpassword'].hasError('required')">
+                                            <p class="star">*</p>
+                                        </mat-error>
+
+                                    </div>
+
+
+                                    <div class="col-md-12"><label class="labels">New Password</label>
+                                        <input type="password" class="form-control" matInput formControlName="password">
+                                        <mat-error *ngIf="EditPasswordForm.controls['password'].hasError('required')">
+                                            <p class="star">*</p>
+                                        </mat-error>
+                                        <mat-error class="col-lg-12" *ngIf="EditPasswordForm.controls['password'].hasError('minlength') && 
+                                        !EditPasswordForm.controls['password'].hasError('required')">
+                                            <p style="text-align: center; color: red;"> Please enter a strong password
+                                            </p>
+                                        </mat-error>
+                                    </div>
+
+
+
+                                    <div class="col-md-12"><label class="labels">Confarm Password</label>
+                                        <input type="password" class="form-control" matInput
+                                            formControlName="confirmpassword">
+                                        <mat-error
+                                            *ngIf="EditPasswordForm.controls['confirmpassword'].hasError('required')">
+                                            <p class="star">*</p>
+                                        </mat-error>
+                                        <mat-error *ngIf="EditPasswordForm.controls['confirmpassword'].value !=
+                                      EditPasswordForm.controls['password'].value" class="col-lg-12">
+                                            <p style="text-align: center; color: red;">Confirm password must equal
+                                                password</p>
+                                        </mat-error>
+                                    </div>
+                                </div>
+                                <div class="mt-5 text-center"><button class="btn btn-primary profile-button"
+                                        type="button" (click)="editpassword()" [disabled]="!EditPasswordForm.valid">Save
+                                        New Password </button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<ng-template #callCreate>
+    <mat-dialog-content class="mat-typography">
+      <form [formGroup]="CreateForm" class="example-form">
+        <ul>
+          <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter Card Name </mat-label>
+              <input type="text" matInput formControlName="card_Name" placeholder="Card Name">
+              <mat-error *ngIf="CreateForm.controls['card_Name'].hasError('required')">
+                Card name is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </li>
+          <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter Card CVC</mat-label>
+              <input type="number" matInput formControlName="cvc_Card" placeholder="CVC Card">
+              <mat-error *ngIf="CreateForm.controls['cvc_Card'].hasError('required')">
+                CVC Card is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </li>
+          <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter Balance </mat-label>
+              <input type="number" matInput formControlName="balance" placeholder="balance">
+              <mat-error *ngIf="CreateForm.controls['balance'].hasError('required')">
+                Balance is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+  
+          </li>
+           <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter the Card Number </mat-label>
+              <input type="number" matInput formControlName="card_Number" placeholder="Card Number">
+              <mat-error *ngIf="CreateForm.controls['card_Number'].hasError('required')">
+                Card Number is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </li> 
+          <li>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Enter the expiry_Date </mat-label>
+              <input type="date" matInput formControlName="expiry_Date" placeholder="Expiry Date">
+              <mat-error *ngIf="CreateForm.controls['expiry_Date'].hasError('required')">
+                Expiry Date is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </li> 
+        </ul>
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button class="btn btn-secondary" mat-dialog-close>Cancel</button>
+      <button mat-button class="btn btn-primary" [mat-dialog-close]="true" (click)="save()" [disabled]="!CreateForm.valid"
+        cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+  
+  </ng-template>
+
+
+  
+<ng-template #callPay>
+    <h2>Are You Sure you want to Pay </h2>
+    <mat-dialog-actions align="end">
+      <button mat-button class="btn btn-secondary" mat-dialog-close="no">No</button>
+      <button mat-button class="btn btn-primary" mat-dialog-close="yes">yes</button>
+    </mat-dialog-actions>
+  
+  </ng-template>
+  

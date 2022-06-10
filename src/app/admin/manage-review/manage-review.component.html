@@ -1,0 +1,22 @@
+<div id="outer-container">
+    <app-dashboard id="sidebar"></app-dashboard>
+    <div id="content">
+      <div class="container table-responsive py-5">
+        <h1>Review</h1>
+        <div style="overflow-x:auto !important ;">
+          <table class="table table-bordered table-hover">
+            <thead class="thead-dark">
+              <th style=" text-align: center;">RATE VALUE</th>
+            </thead>
+            <tbody>
+              <tr *ngFor="let obj of review.reviewData">
+                <td> {{obj.rate}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

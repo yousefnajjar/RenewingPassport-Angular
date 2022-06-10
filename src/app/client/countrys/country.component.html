@@ -1,0 +1,16 @@
+<app-header></app-header>
+
+<body>
+    <div class="cont">
+
+        <div class="flex-container ">
+            <div class="item">
+                <app-country-card *ngFor="let obj of country.countryData" [countryDescrption]="obj.countryDescrption"
+                    [countryImage]="obj.countryImage" [countryName]="obj.countryName" [countryType]="obj.countryType">
+                </app-country-card>
+            </div>
+        </div>
+        <br>
+        <app-footer></app-footer>
+    </div>
+</body>

@@ -1,0 +1,86 @@
+
+<!-- info section -->
+<section class="info_section ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="info_logo">
+            <a class="navbar-brand" routerLink="about">
+              <span>
+                Renewing Passport
+              </span>
+            </a>
+            <p>
+              {{website.websiteData[0].descrption}}
+            </p>
+          </div>
+        </div>
+       
+        <div class="col-md-4">
+          <div class="info_info">
+            <h5>
+              Contact Us
+            </h5>
+          </div>
+          <div class="info_contact">
+            <a href="" class="">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                {{website.websiteData[0].location}} 
+              </span>
+            </a>
+            <a href="" class="">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Call : {{website.websiteData[0].phonenumber}}
+              </span>
+            </a>
+            <a href="" class="">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                {{website.websiteData[0].email}} 
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="info_form ">
+            <h5>
+              Newsletter
+            </h5>
+            <form action="#">
+              <input type="email" placeholder="Enter your email">
+              <button>
+                Subscribe
+              </button>
+            </form>
+            <div class="social_box">
+              <a href="">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-youtube" aria-hidden="true"></i>
+              </a>
+              <a href="">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+<!-- footer section -->
+<footer class="container-fluid footer_section">
+    <p>
+      &copy; <span id="displayYear"></span> All Rights Reserved By
+      <a href="/home">  {{website.websiteData[0].website_Name}} </a>
+    </p>
+  </footer>
+  <!-- footer section -->

@@ -1,0 +1,90 @@
+
+
+
+  #outer-container {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+#sidebar {
+	display: table-cell;
+	width: 15%;
+	vertical-align: top;
+}
+
+#content {
+	display: table-cell;
+	width: 85%;
+	vertical-align: top;
+    padding: 10px 20px 20px 20px;
+    
+}
+.btn-primary{
+    margin: 10px 10px 10px 0px ;
+}
+
+td{
+	text-align: center;
+}
+
+h1{
+	text-align: center;
+	font-size: 30px;
+}
+
+ul li{
+    list-style: none;
+	display: flex;
+	justify-content: space-between;
+	
+}
+p{
+	opacity: 50%;
+}
+
+.btn-danger{
+    margin: 10px 10px 10px 0px ;
+}
+.btn-secondary{
+    margin: 10px 10px 10px 0px ;
+}
+
+.search {
+	top: 20px;
+	position: relative;
+  }
+
+  h1 {
+	top: 30px;
+	position: relative;
+  }
+
+  .form-control {
+	width: 200px;
+  }
+  .btndate {
+	position: relative;
+	top: 17px;
+	right: 290px;
+	width: 238px;
+	height: 39px;
+}
+
+	.colend {
+		left: -332px !important;
+position: relative;
+	  }
+  /* .dates {
+	position: relative;
+	left: 256px;
+	top: -88px;}
+
+	.btn-date {
+		position: relative;
+		top: -137px;
+		right: -510px;
+	  }
+
+	  .f{top: 30px;
+		position: relative;} */

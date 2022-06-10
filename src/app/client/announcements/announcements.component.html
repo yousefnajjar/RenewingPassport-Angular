@@ -1,0 +1,24 @@
+<app-header></app-header>
+
+
+<body>
+
+  <form [formGroup]="SearchForm">
+    <div class="input-group" >
+      <input type="search" class="form-control rounded" placeholder="Ex: subject.." aria-label="Search" aria-describedby="search-addon" formControlName="subject"/>
+      <button type="button" class="btn btn-outline-primary" (click)="Search()">Search</button>
+    </div>
+  </form>
+    <div  class="heading_container heading_center">
+    <h2 >
+        Announcements
+      </h2>
+    </div>
+   
+<app-announcements-card *ngFor="let obj of announcements.announcementsData" [subject]="obj.subject"
+[text]="obj.text" [publisheddate]="obj.publisheddate" [category]="obj.category"
+></app-announcements-card>
+<br>
+<app-footer></app-footer>
+</body>
+

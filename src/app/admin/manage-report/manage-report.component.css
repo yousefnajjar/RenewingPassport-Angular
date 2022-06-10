@@ -1,0 +1,355 @@
+/* .bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-top-width: 5px;
+    border-radius: 3px;
+}
+
+.dateform {
+    position: relative;
+    top: 520px;
+    left: 16px;
+}
+
+.contenido {
+    margin-top: 120px;
+    border: 4px solid black;
+}
+
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+
+.bs-callout code {
+    border-radius: 3px;
+}
+
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+
+
+.bs-callout-default h4 {
+    color: #777;
+}
+
+
+.bs-callout-primary h4 {
+    color: #428bca;
+}
+
+
+.bs-callout-success h4 {
+    color: #5cb85c;
+}
+
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+
+.bs-callout-danger h4 {
+    color: #d9534f;
+}
+
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+
+.bs-callout-info {
+    border-left-color: #337ab7;
+}
+
+.bs-callout-info h4 {
+    color: #337ab7;
+}
+
+tbody {
+    font-size: 16px;
+
+}
+
+
+
+
+#outer-container {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+#sidebar {
+    display: table-cell;
+    width: 15%;
+    vertical-align: top;
+}
+
+#content {
+    display: table-cell;
+    width: 85%;
+    vertical-align: top;
+    padding: 10px 20px 20px 20px;
+    margin-top: 40px !important;
+
+}
+
+.btn-primary {
+    margin: 10px 10px 10px 0px;
+}
+
+td {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
+ul li {
+    list-style: none;
+}
+
+
+.col-md-4.text-right {
+    position: absolute;
+    z-index: 1;
+    top: 75px;
+}
+
+
+.form-control {
+    width: 200px;
+}
+
+.btndate {
+    position: relative;
+    top: 17px;
+    right: 290px;
+    width: 238px;
+    height: 39px;
+}
+
+.colend {
+    left: -332px !important;
+    position: relative;
+}
+
+.all {
+    position: relative;
+    left: 38px;
+
+}
+ 
+
+
+
+
+
+
+ */
+
+
+
+
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-top-width: 5px;
+    border-radius: 3px;
+}
+
+.dateform {
+    position: relative;
+    top: 520px;
+    left: 16px;
+}
+
+.contenido {
+    margin-top: 120px;
+    border: 4px solid black;
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.bs-callout h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.bs-callout p:last-child {
+    margin-bottom: 0;
+}
+
+.bs-callout code {
+    border-radius: 3px;
+}
+
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+
+/* .bs-callout-default {
+    border-left-color: #777;
+    border-right-color: #777;
+} */
+.bs-callout-default h4 {
+    color: #777;
+}
+
+/* .bs-callout-primary {
+    border-left-color: #428bca;
+    border-right-color: #428bca;
+} */
+.bs-callout-primary h4 {
+    color: #428bca;
+}
+
+/* .bs-callout-success {
+    border-left-color: #5cb85c;
+} */
+.bs-callout-success h4 {
+    color: #5cb85c;
+}
+
+.bs-callout-danger {
+    border-left-color: #d9534f;
+}
+
+.bs-callout-danger h4 {
+    color: #d9534f;
+}
+
+.bs-callout-warning {
+    border-left-color: #f0ad4e;
+}
+
+.bs-callout-warning h4 {
+    color: #f0ad4e;
+}
+
+.bs-callout-info {
+    border-left-color: #337ab7;
+}
+
+.bs-callout-info h4 {
+    color: #337ab7;
+}
+
+tbody {
+    font-size: 16px;
+
+}
+
+
+
+
+#outer-container {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+#sidebar {
+    display: table-cell;
+    width: 15%;
+    vertical-align: top;
+}
+
+#content {
+    display: table-cell;
+    width: 85%;
+    vertical-align: top;
+    padding: 10px 20px 20px 20px;
+    margin-top: 40px !important;
+
+}
+
+.btn-primary {
+    margin: 10px 10px 10px 0px;
+}
+
+td {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
+ul li {
+    list-style: none;
+}
+
+
+.col-md-4.text-right {
+    position: absolute;
+    z-index: 1;
+    top: 75px;
+}
+
+
+.form-control {
+    width: 200px;
+}
+
+.btndate {
+    position: relative;
+    top: 17px;
+    right: 290px;
+    width: 238px;
+    height: 39px;
+}
+
+.colend {
+    left: -332px !important;
+    position: relative;
+}
+
+
+
+html {
+    overflow-x: hidden;
+}
+
+
+.contant {
+
+    padding: 0px 30px 0px 70px !important;
+}
+
+
+.dateform {
+    position: relative;
+    top: 545px;
+    left: 152px;
+}
+html{
+    overflow: hidden !important;
+    overflow-x: hidden !important;
+
+}
+body{
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+#outer-container{
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+
+}

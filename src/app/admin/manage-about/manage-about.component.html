@@ -1,0 +1,89 @@
+<div id="outer-container">
+  <app-dashboard id="sidebar"></app-dashboard>
+  <div id="content">
+    <div class="container table-responsive py-5">
+      <h1>About</h1>
+      <div style="overflow-x:auto !important;">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">MISSION</th>
+              <th scope="col">VISION</th>
+              <th scope="col">GOAL</th>
+              <th scope="col">workinghour WORKING HOUR</th>
+              <th>OPERATION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let obj of about.aboutData">
+              <td>{{obj.mission}}</td>
+              <td>{{obj.vision}}</td>
+              <td>{{obj.goals}}</td>
+              <td>{{obj.workinghour}}</td>
+              <td>
+                <button type="button" class="btn btn-info" style="margin: 10px;"
+                  (click)="openUpdatedialog(obj.about_Us_Id,obj.mission,obj.vision,obj.goals,obj.workinghour)">Update</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<ng-template #callUpdate>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="UpdateForm" class="example-form">
+      <ul>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter the mission </mat-label>
+            <input type="text" matInput formControlName="mission" 
+              placeholder="mission contant">
+            <mat-error *ngIf="UpdateForm.controls['mission'].hasError('required')">
+              The Mission is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Insert the Vision </mat-label>
+            <input type="text" matInput formControlName="vision" 
+              placeholder="vision contant">
+            <mat-error *ngIf="UpdateForm.controls['vision'].hasError('required')">
+              The Mission is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter the Goal </mat-label>
+            <input type="text" matInput formControlName="goals"  placeholder="goal contant">
+            <mat-error *ngIf="UpdateForm.controls['goals'].hasError('required')">
+              The goals is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Insert the Working Hour </mat-label>
+            <input type="text" matInput formControlName="workinghour"
+              placeholder="working hour contant">
+            <mat-error *ngIf="UpdateForm.controls['workinghour'].hasError('required')">
+              The working hour is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </li>
+
+      </ul>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button class="btn btn-secondary" mat-dialog-close>Cancel</button>
+    <button mat-button [mat-dialog-close]="true" class="btn btn-primary" (click)="update()" [disabled]="!UpdateForm.valid"
+      cdkFocusInitial>Save</button>
+  </mat-dialog-actions>
+
+</ng-template>

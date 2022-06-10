@@ -1,0 +1,347 @@
+ <!-- <div id="outer-container">
+    <app-dashboard id="sidebar"></app-dashboard>
+    <div class="all">
+        <div class="dateform">
+            <form [formGroup]="DateForm">
+                <div class="row">
+                    <div class="col">
+                        <label style="font-size: 18px;"> Start Date</label>
+                        <input type="date" class="form-control" formControlName="startDate">
+
+                    </div>
+                    <div class="colend">
+                        <label style="font-size: 18px;"> End Date</label>
+                        <input type="date" class="form-control" formControlName="endDate">
+                    </div>
+                    <button type="button" class="btn btn-primary btndate" (click)="getdate()">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div id="content" id="htmlData">
+
+            <div class="contenido">
+                <div class="col-md-4 text-right">
+                    <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+                </div>
+
+                <h2 class="text-center"> <img src="../../../assets/Rp_Images/{{website.websiteData[0].logo}}" alt=""
+                        style="height: 50px;width: 50px; border-radius: 20px; margin: 2px;">
+                    {{website.websiteData[0].website_Name}} Report</h2>
+                <div class="bs-callout bs-callout-default">
+                    <div class="row text-center">
+
+                        <div class="col-md-3">
+                            <h4>NUMBER OF PINDING PASSPORT</h4>
+                            <label id="abiertas"> {{passportPindingLength}}</label>
+
+                        </div>
+                        <div class="col-md-3">
+                            <h4>NUMBER OF ANNAOUNCEMENT </h4>
+                            <label id="referencia">{{annaouncementLength}} </label>
+
+                        </div>
+
+                        <div class="col-md-3">
+                            <h4>NUMBER OF TESTIMONAIL</h4>
+                            <label id="aportando"> {{testimonialLength}}</label>
+
+                        </div>
+                        <div class="col-md-3">
+                            <h4>NUMBER OF CONTACT</h4>
+                            <label id="completadas"> {{contactLength}}</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="bs-callout bs-callout-primary">
+                    <div class="row text-center">
+
+                        <div class="col-md-4">
+                            <h4>NUMBER OF USERS</h4>
+                            <label id="abiertas"> {{authLength}}</label>
+
+                        </div>
+                        <div class="col-md-4">
+                            <h4>NUMBER OF USER APPLY FOR PASSPORT</h4>
+                            <label id="referencia">{{passportoveralllLength}}</label>
+
+                        </div>
+
+                        <div class="col-md-4">
+                            <h4>OVER ALL REVEIWS</h4>
+                            <label id="aportando">{{reviewAvarage}}</label>
+
+                        </div>
+
+                    </div>
+                    <br>
+
+
+                </div>
+
+                <br>
+                <br>
+                <br>
+                <hr>
+                <h2 class="text-center">PASSPORT INFORMATION </h2>
+                <hr>
+
+                <table id="lista-cuentas" class="table table-hover table-striped">
+                    <thead style="text-align: center;">
+                        <tr>
+                            <th>FULL NAME </th>
+                            <th>PASSPORT TYPE</th>
+                            <th>STATUS</th>
+                            <th>REQUEST TIME</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let obj of passport.passportData">
+                            <td>{{obj.fullname}}</td>
+                            <td>{{obj.passport_Type}}</td>
+                            <td>{{obj.status}}</td>
+                            <td>{{obj.requesttime|date:'YYYY-MM-dd'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> 
+ -->
+
+<!-- <div id="outer-container">
+    <app-dashboard id="sidebar"></app-dashboard>
+
+        <div id="content" id="htmlData">
+
+        <div class="contenido all">
+            <div class="col-md-4 text-right but">
+                <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+                <button class="btn btn-success btn-block"  s (click)="refresh()">Refresh</button>
+            </div>
+            <div class="">
+                <h2 class="text-center"> <img src="../../../assets/Rp_Images/{{website.websiteData[0].logo}}" alt=""
+                    style="height: 50px;width: 50px; border-radius: 20px; margin: 2px;">
+                {{website.websiteData[0].website_Name}} Report</h2>
+            <div class="bs-callout bs-callout-default">
+                <div class="row text-center">
+
+                    <div class="col-md-3">
+                        <h4>NUMBER OF PINDING PASSPORT</h4>
+                        <label id="abiertas"> {{passportPindingLength}}</label>
+
+                    </div>
+                    <div class="col-md-3">
+                        <h4>NUMBER OF ANNAOUNCEMENT </h4>
+                        <label id="referencia">{{annaouncementLength}} </label>
+
+                    </div>
+
+                    <div class="col-md-3">
+                        <h4>NUMBER OF TESTIMONAIL</h4>
+                        <label id="aportando"> {{testimonialLength}}</label>
+
+                    </div>
+                    <div class="col-md-3">
+                        <h4>NUMBER OF CONTACT</h4>
+                        <label id="completadas"> {{contactLength}}</label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="bs-callout bs-callout-primary">
+                <div class="row text-center">
+
+                    <div class="col-md-4">
+                        <h4>NUMBER OF USERS</h4>
+                        <label id="abiertas"> {{authLength}}</label>
+
+                    </div>
+                    <div class="col-md-4">
+                        <h4>NUMBER OF USER APPLY FOR PASSPORT</h4>
+                        <label id="referencia">{{passportoveralllLength}}</label>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <h4>OVER ALL REVEIWS</h4>
+                        <label id="aportando">{{reviewAvarage}}</label>
+
+                    </div>
+
+                </div>
+                <br>
+                <div class="all">
+                <div class="dateform">
+                <form [formGroup]="DateForm">
+                    <div class="row">
+                        <div class="col">   
+                            <label style="font-size: 18px;"> Start Date</label>
+                            <input type="date" class="form-control" formControlName="startDate">
+                        </div>
+                        <div class="colend">
+                            <label style="font-size: 18px;"> End Date</label>
+                            <input type="date" class="form-control" formControlName="endDate">
+                        </div>
+                        <button type="button" class="btn btn-primary btndate" (click)="getdate()">Submit</button>
+                       
+                    </div>
+                </form>
+            </div>
+            </div>
+
+            <br>
+            <hr>
+            <h2 class="text-center">PASSPORT INFORMATION </h2>
+            <hr>
+
+            <table id="lista-cuentas" class="table table-hover table-striped">
+                <thead style="text-align: center;">
+                    <tr>
+                        <th>FULL NAME </th>
+                        <th>PASSPORT TYPE</th>
+                        <th>STATUS</th>
+                        <th>REQUEST TIME</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let obj of passport.passportData">
+                        <td>{{obj.fullname}}</td>
+                        <td>{{obj.passport_Type}}</td>
+                        <td>{{obj.status}}</td>
+                        <td>{{obj.requesttime|date:'YYYY-MM-dd'}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div></div> -->
+
+
+
+
+
+
+
+
+<div id="outer-container">
+    <app-dashboard id="sidebar"></app-dashboard>
+    
+    <div class="dateform">
+        <form [formGroup]="DateForm" >
+         <div class="row">
+             <div class="col">   
+                 <label style="font-size: 18px;"> Start Date</label>
+                 <input type="date" class="form-control" formControlName="startDate">
+                 
+             </div>
+             <div class="colend">
+                 <label style="font-size: 18px;"> End Date</label>
+                 <input type="date" class="form-control" formControlName="endDate">
+             </div>
+             <button type="button" class="btn btn-primary btndate" (click)="getdate()">Submit</button>
+         </div>
+     </form> 
+     </div>
+     <div class="contant">
+    <div id="content" id="htmlData">
+
+        <div class="contenido">
+            <div class="col-md-4 text-right">
+                <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+                <button class="btn btn-success btn-block" (click)="refresh()">Refresh</button>
+            </div>
+            
+            <h2 class="text-center"> <img src="../../../assets/Rp_Images/{{website.websiteData[0].logo}}" alt=""
+                style="height: 50px;width: 50px; border-radius: 20px; margin: 2px;"> {{website.websiteData[0].website_Name}} Report</h2>
+            <div class="bs-callout bs-callout-default">
+                <div class="row text-center">
+
+                    <div class="col-md-3">
+                        <h4>NUMBER OF PINDING PASSPORT</h4>
+                        <label id="abiertas"> {{passportPindingLength}}</label>
+
+                    </div>
+                    <div class="col-md-3">
+                        <h4>NUMBER OF ANNAOUNCEMENT </h4>
+                        <label id="referencia">{{annaouncementLength}} </label>
+
+                    </div>
+
+                    <div class="col-md-3">
+                        <h4>NUMBER OF TESTIMONAIL</h4>
+                        <label id="aportando"> {{testimonialLength}}</label>
+
+                    </div>
+                    <div class="col-md-3">
+                        <h4>NUMBER OF CONTACT</h4>
+                        <label id="completadas"> {{contactLength}}</label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="bs-callout bs-callout-primary">
+                <div class="row text-center">
+
+                    <div class="col-md-4">
+                        <h4>NUMBER OF USERS</h4>
+                        <label id="abiertas"> {{authLength}}</label>
+
+                    </div>
+                    <div class="col-md-4">
+                        <h4>NUMBER OF USER APPLY FOR PASSPORT</h4>
+                        <label id="referencia">{{passportoveralllLength}}</label>
+
+                    </div>
+
+                    <div class="col-md-4">
+                        <h4>OVER ALL REVEIWS</h4>
+                        <label id="aportando">{{reviewAvarage}}</label>
+
+                    </div>
+
+                </div>
+                <br>
+              
+                
+            </div>
+
+            <br>
+            <br>
+            <br>
+            <hr>
+            <h2 class="text-center">PASSPORT INFORMATION </h2>
+            <hr>
+
+            <table id="lista-cuentas" class="table table-hover table-striped">
+                <thead style="text-align: center;">
+                    <tr>
+                        <th>FULL NAME </th>
+                        <th>PASSPORT TYPE</th>
+                        <th>STATUS</th>
+                        <th>REQUEST TIME</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr *ngFor="let obj of passport.passportData">
+                        <td>{{obj.fullname}}</td>
+                        <td>{{obj.passport_Type}}</td>
+                        <td>{{obj.status}}</td>
+                        <td>{{obj.requesttime|date:'YYYY-MM-dd'}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>

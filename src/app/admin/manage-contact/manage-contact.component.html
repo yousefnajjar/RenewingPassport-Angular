@@ -1,0 +1,90 @@
+<div id="outer-container">
+    <app-dashboard ></app-dashboard>
+    <div id="content">
+        <div class="container table-responsive py-5">
+            <h1> Contact</h1>
+           
+              <div style="overflow-x:auto !important;">
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">NAME</th>
+                        <th scope="col">PHANE NUMBER</th>
+                        <th scope="col">EMAIL</th>
+                        <th scope="col">MESSEGE</th>
+                        <th>OPERATION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let obj of Contact.ContactData">                        
+                        <td>{{obj.name}}</td>
+                        <td>{{obj.phone_No}}</td>
+                        <td>{{obj.email}}</td>
+                        <td>{{obj.massege}}</td>
+                        <td> <button type="button" class="btn btn-danger"
+                               (click)="openDeletedialog(obj.contact_Us_Id)"  >Delete</button> 
+                               <button type="button" class="btn btn-info"
+                               (click)="openCreatedialog(obj.contact_Us_Id, obj.name, obj.email)"  >Write Email</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+ <ng-template #callDelete>
+    <h2>Are You Sure you want ti delete this item</h2>
+    <mat-dialog-actions align="end">
+        <button mat-button class="btn btn-secondary" mat-dialog-close="no">No</button>
+        <button mat-button class="btn btn-primary" mat-dialog-close="yes">yes</button>
+    </mat-dialog-actions>
+
+</ng-template> 
+
+
+ <ng-template #callCreate>
+    <mat-dialog-content class="mat-typography">
+      <form [formGroup]="CreateForm" class="example-form">
+        <ul>
+            <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Enter Reciver Name</mat-label>
+                  <input type="text" matInput formControlName="name" [(ngModel)]="contactobj.name" 
+                  placeholder="Name">
+                </mat-form-field>
+              </li>
+              <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Enter Reciver Email</mat-label>
+                  <input type="email" matInput formControlName="email" [(ngModel)]="contactobj.email" 
+                  placeholder="Name">
+                </mat-form-field>
+              </li>
+              <li>
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Enter The message</mat-label>
+                  <textarea type="text" matInput formControlName="message" 
+                  placeholder="message">
+                  </textarea>
+                </mat-form-field>
+              </li>
+        </ul>
+      </form>
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close class="btn btn-secondary">Cancel</button>
+      <button mat-button [mat-dialog-close]="true" (click)="save()"  class="btn btn-primary"  [disabled]="!CreateForm.valid"
+        cdkFocusInitial>Save</button>
+    </mat-dialog-actions>
+  
+  </ng-template>
+  
+   
+  
+

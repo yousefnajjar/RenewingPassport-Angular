@@ -1,0 +1,98 @@
+body {
+    background: rgb(99, 39, 120)
+}
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}
+
+#outer-container {
+    display: table;
+    width: 100%;
+    height: 100%;
+}
+
+#sidebar {
+    display: table-cell;
+    width: 15%;
+    vertical-align: top;
+}
+
+#content {
+    display: table-cell;
+    width: 85%;
+    vertical-align: top;
+    padding: 10px 20px 20px 20px;
+    margin: 40px 20px 20px 20px;
+}
+
+.btn-primary {
+    margin: 10px 10px 10px 0px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 30px;
+}
+
+input,
+span {
+    color: #000 !important;
+}
+
+.text-black-50 {
+    color: #000 !important;
+}
+
+.col-md-8.border-right {
+    margin-top: 40px !important;
+}
+
+.labels,
+h4,
+span {
+    color: #6610f2;
+}
+
+
+#content {
+    position: relative;
+    top: 40px;
+}

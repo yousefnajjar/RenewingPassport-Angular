@@ -1,0 +1,20 @@
+
+
+.drop {
+    position: relative;
+    left: -47px;
+}
+
+
+.dropdown-menu.show {
+    background-color: #24315b;
+    border-radius: 10px;
+    border: solid 2px #9fbccc;
+    color: white;
+}
+
+.dropdown-item:hover{
+    background-color: #10276c;
+    color: white;
+
+}

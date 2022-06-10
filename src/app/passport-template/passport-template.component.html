@@ -1,0 +1,69 @@
+<!-- <div class="col-md-8" >
+    <table class="table table-bordered">
+        <tr class="table-primary">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        <tr>
+            <th>{{passport.singlePassport.email}}</th>
+            <td>{{passport.singlePassport.gender}}</td>
+            <td>{{passport.singlePassport.email}}</td>
+            <td>{{passport.singlePassport.national_No}}</td>
+        </tr>
+    </table>
+</div> -->
+
+<app-header></app-header>
+<body>
+    <br>
+<div class="contaner">
+    <div class="card" id="htmlData">
+        <div class="card-body">
+            <h5 class="card-title">
+                <pre class="tab">                                        The Hashemite Kingdom of Jordan     </pre>
+            </h5>
+            <img class="crown" src="../../assets/images/Jordan_Crown.00.jpg" style="width: 25px; height: 25px;" alt="">
+            <h6 class="card-subtitle mb-2 text-muted"></h6>
+            <h6 class="card-subtitle mb-2 text-muted">
+                <pre
+                    class="tab1">               JORDAN          Type           Country code                 Passport No           </pre>
+                <pre
+                    class="tab2">               Passport         {{passport.singlePassport.passport_Type}}                JOR                       {{passport.singlePassport.passportnumber}}                      </pre>
+                <pre class="tab3"> Name:   </pre>
+                <pre class="tab4">  {{passport.singlePassport.fullname}}</pre>
+                <pre class="tab5"> Date of Birth:                                           Plsce of Birth:</pre>
+                <pre
+                    class="tab6">  {{passport.singlePassport.birthdate|date:'YYYY-MM-dd'}}                                                 {{passport.singlePassport.placeofbirth}}  </pre>
+                <pre class="tab7"> Sex:                                                     Mother's name:</pre>
+                <pre
+                    class="tab8">  {{passport.singlePassport.gender}}                                                       {{passport.singlePassport.mother_Name}} </pre>
+                <pre class="tab9"> Date of Issue                                             Authority:</pre>
+                <pre
+                    class="tab10">  {{passport.singlePassport.dateofissue|date:'YYYY-MM-dd'}}                                                 {{passport.singlePassport.authority}} </pre>
+                <pre class="tab11"> Expiry Date:                                               Address:</pre>
+                <pre
+                    class="tab12">  {{passport.singlePassport.expirydate|date:'YYYY-MM-dd'}}                                                 {{passport.singlePassport.address}} </pre>
+            </h6>
+            <img class="personal1" src="../../assets/Rp_Images/{{passport.singlePassport.image}}"
+                style="width: 40px; height: 40px;" alt="">
+            <img class="personal2" src="../../assets/Rp_Images/{{passport.singlePassport.image}}"
+                style="width: 100px; height: 150px;" alt="">
+            <div class="bot">
+                <pre
+                    class="tab13">            P &lt;JORAMMAN&lt;&lt;{{passport.singlePassport.passportnumber}}&lt;{{passport.singlePassport.fullname}}&lt;&lt;&lt;{{passport.singlePassport.authority}}&lt;&lt;{{passport.singlePassport.dateofissue|date:'YYYY-MM-dd'}}&lt;&lt;554DFGDFG </pre>
+                <pre
+                    class="tab13">            P &lt;TE4545451&lt;&lt;JNK5165&lt;U74444&lt;45565656&lt;BJ454151C&lt;566565656 </pre>
+
+            </div>
+
+            <div class="col-md-4 text-right">
+                <button class="btn btn-success btn-block" (click)="openPDF()">Download PDF</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+</body>
+<app-footer></app-footer>

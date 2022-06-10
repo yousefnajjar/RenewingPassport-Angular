@@ -1,0 +1,56 @@
+<app-header></app-header>
+<!-- about section -->
+
+<section class="about_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 px-0">
+          <div class="img_container">
+            <div class="img-box">
+              <img src="./assets/images/about-img.jpg" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 px-0">
+          <div class="detail-box">
+            <div class="heading_container ">
+              <h2>
+                Mission
+              </h2>
+            </div>
+            <p>
+              {{about.aboutData[0].mission}}
+            </p>
+            <div class="heading_container ">
+              <h2>
+                vision
+              </h2>
+            </div>
+            <p>
+              {{about.aboutData[0].vision}}
+            </p>
+            <div class="heading_container ">
+              <h2>
+                gole
+              </h2>
+            </div>
+            <p>
+              {{about.aboutData[0].goals}}
+            </p>
+            
+            <div class="heading_container ">
+              <h2>
+                workinghour
+              </h2>
+            </div>
+            <p>
+              {{about.aboutData[0].workinghour}}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- end about section -->
+<app-footer></app-footer>

@@ -1,0 +1,97 @@
+<div id="outer-container">
+  <app-dashboard id="sidebar"></app-dashboard>
+  <div id="content">
+    <div class="container table-responsive py-5">
+      <h1> Website</h1>
+      <div style="overflow-x:auto !important;">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">WEBSITE NAME</th>
+              <th scope="col">LOGO</th>
+              <th scope="col">LOCATION</th>
+              <th scope="col">POHNE NUMBER</th>
+              <th scope="col">EMAIL</th>
+              <th scope="col">DESCRBTION </th>
+              <th scope="col">OPERATION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let obj of website.websiteData">
+              <td>{{obj.website_Name}}</td>
+              <td><img src="../../../assets/Rp_Images/{{obj.logo}}"
+                  style="height: 100px;width: 100px; border-radius: 20px;"></td>
+              <td>{{obj.location}}</td>
+              <td>{{obj.phonenumber}}</td>
+              <td>{{obj.email}}</td>
+              <td>{{obj.descrption}}</td>
+              <td>
+                <button type="button" class="btn btn-info" style="margin: 10px;" (click)="openUpdatedialog(obj.website_Id,obj.website_Name,obj.logo,obj.location,
+                 obj.phonenumber ,obj.email,obj.descrption)">Update</button>
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<ng-template #callUpdate>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="UpdateForm" class="example-form">
+      <ul>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Website Name</mat-label>
+            <input type="text" matInput formControlName="website_Name" [(ngModel)]="web.website_Name"
+              placeholder=" Website Name">
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter location</mat-label>
+            <input type="text" matInput formControlName="location"
+             [(ngModel)]="web.location" placeholder=" location">
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Phone Number</mat-label>
+            <input type="text" matInput formControlName="phonenumber" [(ngModel)]="web.phonenumber"
+              placeholder=" Phone Number">
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Website Email </mat-label>
+            <input type="text" matInput formControlName="email" [(ngModel)]="web.email"
+              placeholder=" Ex:Name@somethig.com">
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Descrption</mat-label>
+            <input type="text" matInput formControlName="descrption" [(ngModel)]="web.descrption"
+              placeholder="website Descrption">
+          </mat-form-field>
+        </li>
+        <li>
+          <input type="file" #file placeholder="Choose Image" 
+          formControlName="logo" (change)="uploadImage(file.files)"
+            style="display:none;">
+          <button class="btn btn-success" (click)="file.click()">Upload Image</button>
+        </li>
+      </ul>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button class="btn btn-secondary" mat-dialog-close>Cancel</button>
+    <button mat-button class="btn btn-primary"[mat-dialog-close]="true" (click)="update()" [disabled]="!UpdateForm.valid"
+      cdkFocusInitial>Save</button>
+  </mat-dialog-actions>
+
+</ng-template>

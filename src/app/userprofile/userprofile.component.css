@@ -1,0 +1,33 @@
+body{
+    margin-top:20px;
+    background:#f8f8f8
+}
+
+.rate{
+position: relative;
+top: -38px;
+left: 190px;
+font-size: 27px;
+}
+
+.element {
+    text-align: center;
+    color: red;
+    position: relative;
+    top: -35PX;
+    right: 38px;
+  }
+
+
+   li{
+    list-style: none;
+}
+
+  
+.btn-primary{
+    margin: 10px 10px 10px 0px ;
+}
+
+.btn-secondary{
+    margin: 10px 10px 10px 0px ;
+}

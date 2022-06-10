@@ -1,0 +1,85 @@
+<div id="outer-container">
+  <app-dashboard id="sidebar"></app-dashboard>
+  <div id="content">
+    <div class="container table-responsive py-5">
+      <h1>Gallery</h1>
+      <button type="button" class="btn btn-primary" (click)="openCreatedialog()">Create New</button>
+      <div style="overflow-x:auto !important ;">
+        <table class="table table-bordered table-hover">
+          <thead class="thead-dark">
+            <th>IMAGE</th>
+            <th>OPERATION</th>
+          </thead>
+          <tbody>
+            <tr *ngFor="let obj of gallery.galleryData">
+              <td><img src="../../../assets/Rp_Images/{{obj.image}}"
+                  style="height: 100px;width: 100px; border-radius: 20px;"></td>
+              <td> <button type="button" class="btn btn-danger"
+                  (click)="openDeletedialog(obj.gallery_Id)">Delete</button>
+                <button type="button" class="btn btn-info" style="margin: 10px;"
+                  (click)="openUpdatedialog(obj.gallery_Id,obj.image)">Update</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<ng-template #callCreate>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="CreateForm" class="example-form">
+      <ul>
+        <li>
+          <input type="file" #file placeholder="Choose Image" formControlName="image" (change)="uploadImage(file.files)"
+            style="display:none;">
+          <button class="btn btn-success" (click)="file.click()">Upload Image</button>
+        </li>
+      </ul>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button class="btn btn-secondary" mat-dialog-close>Cancel</button>
+    <button mat-button  class="btn btn-primary" [mat-dialog-close]="true" (click)="save()" [disabled]="!CreateForm.valid"
+      cdkFocusInitial>Save</button>
+  </mat-dialog-actions>
+
+</ng-template>
+
+
+
+<ng-template #callUpdate>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="CreateForm" class="example-form">
+      <ul>
+        <li>
+          <input type="file" #file placeholder="Choose Image" formControlName="image" (change)="uploadImage(file.files)"
+            style="display:none;">
+          <button class="btn btn-success" (click)="file.click()">Upload Image</button>
+        </li>
+      </ul>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button class="btn btn-secondary" mat-dialog-close>Cancel</button>
+    <button mat-button class="btn btn-primary" [mat-dialog-close]="true" (click)="update()" [disabled]="!CreateForm.valid"
+      cdkFocusInitial>Save</button>
+  </mat-dialog-actions>
+
+</ng-template>
+
+
+
+
+<ng-template #callDelete>
+  <h2>Are You Sure you want ti delete this item</h2>
+  <mat-dialog-actions align="end">
+    <button mat-button class="btn btn-secondary"  mat-dialog-close="no">No</button>
+    <button mat-button class="btn btn-primary" mat-dialog-close="yes">yes</button>
+  </mat-dialog-actions>
+
+</ng-template>

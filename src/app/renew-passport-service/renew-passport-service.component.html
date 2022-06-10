@@ -1,0 +1,207 @@
+<app-header></app-header>
+
+<body>
+  <div><br>
+  </div>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col" colspan="4" style="text-align: center; padding: 35px;">Renew your passport online via the
+          website</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th scope="row">Beneficiary category</th>
+        <td colspan="3">
+          <ul>
+            <li>Jordanian citizens</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Service places</th>
+        <td colspan="3">
+          <ul>
+            <li>Via the website</li>
+            <li>or visit the Civil Status and Passports Department</li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Conditions for obtaining the service <br>
+          the required documents, and instructions</th>
+        <td>
+          <ul>
+            <li>You must be registered on the website.</li>
+            <li>A copy of the old passport, civil ID and a personal photo must be attached.</li>
+            <li>You must make sure that the information is correct when filling out the application, <br>
+              otherwise you will face problems in the renewal process or it may be rejected
+            </li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <th scope="row">Documents required at the Civil Status Department office <br>
+          to receive the new passport after obtaining approval
+        </th>
+        <td>
+          <ul>
+            <li>The old passport.</li>
+            <li>Proof of identity.</li>
+            <li>50 JOD renewal fee.</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot class="thead-dark">
+      <tr>
+        <th scope="col" colspan="4" style="text-align: center; padding: 35px;">To start filling out the application,
+          Press
+            <a (click)="openRenewDialog()" class="startren">
+              Start
+            </a> 
+          </th>
+      </tr>
+    </tfoot>
+  </table>
+  <app-footer></app-footer>
+</body>
+
+
+
+
+<ng-template #callRenewing>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="RenewForm" class="example-form">
+      <ul>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Your Passport Number </mat-label>
+            <input type="text" matInput formControlName="passportnumber" placeholder="Passport Number">
+            <mat-error *ngIf="RenewForm.controls['passportnumber'].hasError('required')">
+              Passport Number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Your Full Name </mat-label>
+            <input type="text" matInput formControlName="fullname" placeholder="Full Name">
+            <mat-error *ngIf="RenewForm.controls['fullname'].hasError('required')">
+              Full Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Your National Number </mat-label>
+            <input type="number" matInput formControlName="national_No" placeholder="National Number">
+            <mat-error *ngIf="RenewForm.controls['national_No'].hasError('required')">
+              National Number is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Your Gender </mat-label>
+            <input type="text" matInput formControlName="gender" placeholder="Gender">
+            <mat-error *ngIf="RenewForm.controls['gender'].hasError('required')">
+              Gender is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Passport Type</mat-label>
+            <input type="text" matInput formControlName="passport_Type" placeholder="Passport Type">
+            <mat-error *ngIf="RenewForm.controls['passport_Type'].hasError('required')">
+              Passport Type is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Your Mother Name</mat-label>
+            <input type="text" matInput formControlName="mother_Name" placeholder="Mother Name">
+            <mat-error *ngIf="RenewForm.controls['mother_Name'].hasError('required')">
+              Mother Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter the Authority</mat-label>
+            <input type="text" matInput formControlName="authority" placeholder="Authority">
+            <mat-error *ngIf="RenewForm.controls['authority'].hasError('required')">
+              Authority is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Your Place of Birth</mat-label>
+            <input type="text" matInput formControlName="placeofbirth" placeholder="Place of Birth">
+            <mat-error *ngIf="RenewForm.controls['placeofbirth'].hasError('required')">
+              Place of Birth is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Active Email</mat-label>
+            <input type="email" matInput formControlName="email" placeholder="Ex: name@somthing.com">
+            <mat-error *ngIf="RenewForm.controls['email'].hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="RenewForm.controls['email'].hasError('email') && 
+                !RenewForm.controls['email'].hasError('required')">
+              Please enter a valid email <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Your Address</mat-label>
+            <input type="text" matInput formControlName="address" placeholder="Address">
+            <mat-error *ngIf="RenewForm.controls['address'].hasError('required')">
+              Address is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </li>
+        <li>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Your Birth date </mat-label>
+            <input type="date" matInput formControlName="birthdate" placeholder="Birth date">
+            <mat-error *ngIf="RenewForm.controls['birthdate'].hasError('required')">
+              Birth date is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Passport Date Of Issue</mat-label>
+            <input type="date" matInput formControlName="dateofissue" placeholder="Date Of Issue">
+            <mat-error *ngIf="RenewForm.controls['dateofissue'].hasError('required')">
+              Date Of Issue is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Enter Passport Expiry Date</mat-label>
+            <input type="date" matInput formControlName="expirydate" placeholder="Expiry Date">
+            <mat-error *ngIf="RenewForm.controls['expirydate'].hasError('required')">
+              Expiry Date is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </li>
+        <div class="images">
+          <li>
+            <input type="file" #file1 placeholder="Choose Image" formControlName="image"
+              (change)="uploadImagePersonal(file1.files)" style="display:none;">
+            <button class="btn btn-success" (click)="file1.click()">Upload Your Personal Image</button>
+          </li>
+          <li>
+            <input type="file" #file2 placeholder="Choose Image" formControlName="img_Card"
+              (change)="uploadImageCard(file2.files)" style="display:none;">
+            <button class="btn btn-success" (click)="file2.click()">Upload Id Card Image</button>
+          </li>
+          <li>
+            <input type="file" #file3 placeholder="Choose Image" formControlName="img_Oldpassport"
+              (change)="uploadImageOld(file3.files)" style="display:none;">
+            <button class="btn btn-success" (click)="file3.click()">Upload Old Passport Image</button>
+          </li>
+        </div>
+      </ul>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end" class="buttons">
+    <button mat-button mat-dialog-close class="btn btn-danger">Cancel</button>
+    <button mat-button [mat-dialog-close]="true" class="btn btn-primary" (click)="save()" [disabled]="!RenewForm.valid"
+      cdkFocusInitial>Submit</button>
+  </mat-dialog-actions>
+
+</ng-template>

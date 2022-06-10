@@ -1,0 +1,133 @@
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #dde4eb;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+    margin: auto;
+    margin-top: 100px;
+    width: 620px;
+    height:360px;
+}
+
+.btn.btn-success.btn-block {
+    position: relative;
+    top: -800px;
+    left: 605px;}
+.bot {
+    width: 619px;
+    height: 75px;
+    background-color: #edeef0;
+    position: relative;
+    left: -20px;
+    bottom: 421px;
+}
+
+.tab1 {
+    position: relative;
+    top: -48px;
+}
+
+.tab2 {
+    position: relative;
+    top: -70px;
+}
+
+
+.tab3 {
+    position: relative;
+    top: -90px;
+    left: 137px;
+}
+
+
+.tab4 {
+    position: relative;
+    top: -115px;
+    left: 136px;
+  
+}
+
+pre.tab5 {
+    position: relative;
+    top: -132px;
+    left: 136px;
+    
+}
+
+
+.tab6 {
+    position: relative;
+    top: -155px;
+    left: 136px;
+    
+}
+
+.tab7 {
+    position: relative;
+    top: -171px;
+    left: 138px;
+    
+}
+
+
+.tab8 {
+    position: relative;
+    top: -194px;
+    left: 136px;
+    
+}
+
+
+.tab9 {
+    position: relative;
+    top: -210px;
+    left: 136px;
+  
+}
+
+pre.tab10 {
+    position: relative;
+    top: -231px;
+    left: 136px;
+    
+}
+
+pre.tab11 {
+    position: relative;
+    top: -246px;
+    left: 136px;
+    
+}
+
+pre.tab12 {
+    position: relative;
+    top: -267px;
+    left: 136px;
+    
+}
+
+.crown {
+    position: relative;
+    top: -8px;
+    left: 35px;
+}
+
+
+.personal1 {
+    position: relative;
+    top: -533px;
+    left: 450px;
+}
+
+img.personal2 {
+    position: relative;
+    top: -441px;
+    left: -7px;
+}

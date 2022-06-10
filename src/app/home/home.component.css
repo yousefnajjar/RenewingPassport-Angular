@@ -1,0 +1,84 @@
+.carousel-item{
+    height: 513px !important;
+}
+ul li{
+    list-style: none;
+}
+
+
+.carousel-item.ng-star-inserted {
+    margin-bottom: -150px;
+  }
+
+
+  .btn-primary{
+    margin: 10px 10px 10px 0px ;
+}
+.btn-secondary{
+    margin: 10px 10px 10px 0px ;
+}
+
+.annn{
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Roboto Mono', monospace; 
+    font-weight: 800 ;
+}
+
+
+.service_section .detail-box a {
+    display: inline-block;
+    padding: 8px 35px;
+    background-color: #8eec69;
+    color: #ffffff;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+    margin-top: 10px;
+}
+
+.addfeed {
+    display: inline-block;
+    padding: 8px 35px;
+    background-color: #8eec69;
+    color: #ffffff;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+    margin-top: 10px;
+    cursor: pointer;
+    position: relative;
+    left: 42.5%;
+    top: -79px;
+}
+
+.addfeed:hover {
+    background-color: transparent;
+    border-color: #8eec69;
+    color: #8eec69;
+}
+
+
+.flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+    top: -200px;
+    position: relative;
+    overflow: hidden;
+    left: 190px;
+
+  }
+  
+  
+  .item{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+  }
+  .testannoun{
+    top: -200px;
+    position: relative;
+  }
